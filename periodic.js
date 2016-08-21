@@ -2,10 +2,10 @@
 
 require('babel-register')
 require('babel-polyfill')
-var schedule = require('node-schedule')
+const schedule = require('node-schedule')
 
-var task = require('./app').default
+const task = require('./app').default
 
-var j = schedule.scheduleJob('25,55 * * * *', function () {
+schedule.scheduleJob('25,55 * * * *', () => {
   return task()
 })

@@ -10,13 +10,13 @@ import email from './email'
 Promise.promisifyAll(redis.RedisClient.prototype)
 const redisClient = redis.createClient(config.get('redisUrl'))
 
-var client = new twilio.RestClient(config.get('twilio.accountSid'), config.get('twilio.authToken'))
+const client = new twilio.RestClient(config.get('twilio.accountSid'), config.get('twilio.authToken'))
 
 async function search () {
-  let state, newState = {}
-  state = await redisClient.hgetallAsync('state') || {}
+  const state = await redisClient.hgetallAsync('state') || {}
+  const newState = {}
 
-  var args = [].slice.call(arguments)
+  const args = [].slice.call(arguments)
 
   const results = await Promise.all(args.map(contains => {
     return client.availablePhoneNumbers('US').local.get({
@@ -35,12 +35,12 @@ async function search () {
   searchResults = [].concat.apply([], searchResults)
 
   // remove dups
-  searchResults = searchResults.filter(function(item, pos, self) {
+  searchResults = searchResults.filter((item, pos, self) => {
     return self.map(r => r.phoneNumber).indexOf(item.phoneNumber) === pos
   })
 
-  const newSearchResults = searchResults.filter(function(item, pos, self) {
-    return (!(item.phoneNumber in state))
+  const newSearchResults = searchResults.filter(item => {
+    return !(item.phoneNumber in state)
   })
 
   // construct new state var {phoneNumber: dateCreated}
