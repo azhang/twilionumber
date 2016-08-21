@@ -65,12 +65,12 @@ async function search () {
     const template = r => `${r}: ${newState[r]}`
 
     const numbersString = newSearchResults.map(r => r.phoneNumber.substring(2)).join(' ')
-    const moreData = Object.keys(newState).map(template).join('\r\n')
+    const moreData = Object.keys(newState).map(template).join('<br>')
 
     try {
       await email({
         subject: `TwilNums: ${numbersString}`,
-        text: moreData
+        html: moreData
       })
     } catch (err) {
       console.error('Email Error:', err.stack)

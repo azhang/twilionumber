@@ -10,6 +10,6 @@ export default function (data) {
     from: config.get('email.fromAddress'),
     to: config.get('email.toAddress'),
     subject: data.subject,
-    text: data.text
+    html: data.html
   })
 }
