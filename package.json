@@ -1,0 +1,36 @@
+{
+  "name": "twilionumber",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Allie Zhang",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.7.6",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "bluebird": "^3.4.1",
+    "config": "^1.21.0",
+    "easy-table": "^1.0.0",
+    "js-yaml": "^3.6.1",
+    "jsonfile": "^2.3.1",
+    "node-schedule": "^1.1.1",
+    "redis": "^2.6.2",
+    "sendgrid": "^2.0.0",
+    "twilio": "^3.3.0-edge"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015-node4",
+      "stage-0"
+    ]
+  }
+}

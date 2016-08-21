@@ -1,0 +1,28 @@
+areaCode: '123'
+patterns:
+  - '000$'
+  - '888$'
+  - '555$'
+  - '000****'
+  - '888****'
+  - '555****'
+  - '0000'
+  - '8888'
+  - '5555'
+  - '9999'
+  - '1111'
+  - '2222'
+  - '3333'
+  - '6666'
+  - '7777'
+  - '4444'
+email:
+  fromAddress: <your@email.com>
+  toAddress: <your@email.com>
+twilio:
+  accountSid: <twilio account sid>
+  authToken: <twilio auth token>
+redisUrl: ''
+sendgrid:
+  username: ''
+  password: ''

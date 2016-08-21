@@ -1,0 +1,4 @@
+redisUrl: REDIS_URL
+sendgrid:
+  username: SENDGRID_USERNAME
+  password: SENDGRID_PASSWORD
