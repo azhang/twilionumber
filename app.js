@@ -18,12 +18,16 @@ async function search () {
 
   const args = [].slice.call(arguments)
 
-  const results = await Promise.all(args.map(contains => {
-    return client.availablePhoneNumbers('US').local.get({
-      areaCode: config.get('areaCode'),
-      contains
+  let results = config.get('areaCode').map(areaCode => {
+    return args.map(contains => {
+      return client.availablePhoneNumbers('US').local.get({
+        areaCode,
+        contains
+      })
     })
-  }))
+  })
+
+  results = await Promise.all([].concat(...results))
 
   let searchResults = results.map(r => r.availablePhoneNumbers).map(r => {
     // sort within each 'contains' result but keep the `contains` order.
