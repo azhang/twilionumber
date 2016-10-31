@@ -6,6 +6,8 @@ Track and email new available numbers on Twilio according to patterns. Deployabl
 
 Copy/paste `config/default.yml` into a new `config/production.yml` file. Overwrite the fields with your own. Commit and push to Heroku after the Deployment steps below.
 
+For `areaCode` and `patterns` formatting, refer to the (Twilio API documentation)[https://www.twilio.com/docs/api/rest/available-phone-numbers#local-get-basic-filters]
+
 ## Deployment
 
 1. Create new Heroku app.
